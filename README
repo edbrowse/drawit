@@ -1,0 +1,87 @@
+The drawit project contains software that allows blind people to create
+simple images. It certainly doesn't have the power of photoshop,
+but then again, photoshop is unusable to us.
+As so often happens, these programs are also used by sighted people,
+who want images that they can tweak by editing an ascii file.
+Change the color of this, change the location of that, etc.
+These programs can be expanded in their capabilities,
+and I certainly welcome ideas and contributions.
+
+The software uses the ImageMagick library. Make sure
+this library is installed, along with the corresponding development headers.
+Appropriate CFLAGS and LDLIBS are in the comment section in src/letterart.c,
+and in src/makefile. Well, they are appropriate for the pi that I am working on;
+you may need to change them for your platform.
+
+The first program is called letterart; source in src/letterart.c.
+It takes an ascii file as input and produces an image as output.
+The input file contains a matrix of letters.
+I sometimes use the .mat suffix for clarity, though that is not strictly necessary.
+The letters define rectilinear shapes, as though they were squares pasted together.
+In other words, the program draws lines around the shapes,
+whenever adjacent letters are different.
+Here is a simple example.
+With this as input, the output is a tall rectangle on the left,
+then another rectangle, then two squares on the right.
+
+	abc
+	abd
+
+letterart chooses the size of the individual squares,
+so that the entire matrix fits on a page.
+It is centered with a modest white border around.
+Use /bin/convert to change the size of the resulting image.
+
+If you are familiar with the Hex™ puzzle, which has been on the market
+since the 1960's, you already know the 12 pentominoes well.
+They are, in my nomenclature: the line, the L, the Y
+(you have to tilt it a little to look like a Y), the C, the stairs, the faucet,
+the Utah, the lightning bolt, the zigzag, the T, the cross, and the chair.
+The Hex puzzle asks you to tile a 6×10 rectangle with these 12 pieces.
+I encountered this puzzle at age 8, and have been fascinated by tiling problems ever since.
+I wrote a C program, hexsol.c, to find all solutions,
+not just for the 6×10 board, but also the 5×12, 4×15, and 3×20 rectangles.
+The latter has only two solutions.
+The original puzzle, on a 6 by 10 board, has 2339 solutions.
+
+hexsol -c
+2339 solutions
+
+This program generates solutions as an ascii matrix, ready for letterart.
+Thus a solution to the Hex puzzle might look like this.
+
+	EEEIIIDDDJ
+	EAELIIFDJJ
+	AAALLFFDKJ
+	CALLFFGGKJ
+	CBBBBBHGKK
+	CCCHHHHGGK
+
+For a sighted person, this is not very satisfying.
+If the above matrix is in a file calld hex610.mat, invoke the program this way.
+
+letterart hex610.mat png48:hex610.png
+
+The prefix png48: on the output file is important!
+On some machines, ImageMagick generates a space saving 8 bit black&white image
+format, which most image programs do not recognize.
+png48: forces 16 bit RGB, which can be read by every program,
+and by every browser, if you wish to put images on your web site.
+The picture that goes with the above matrix is in pictures/hex610.png.
+Take a moment and look at it, and compare with the above matrix.
+
+letterart foo is shorthand for letterart foo png48:foo.png
+Using this shorthand, you won't forget about the png48: prefix.
+
+If you want to extract the individual pieces from the matrix, for machine
+analysis, use the m2p perl script. (matrix to pieces)
+src/m2p <matrix-file >pieces-file
+
+A possible enhancement to letterart would color the individual pieces,
+using the MagickFloodfillPaintImage() function.
+A -c option would allow for the colors.
+Then the letters of the matrix would have meaning: y is for yellow,
+b is for blue, g is for green, etc.
+Use the same letter color correspondence as in drawit.c.
+I haven't implemented this but it wouldn't be hard.
+
