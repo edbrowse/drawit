@@ -13,6 +13,8 @@ Appropriate CFLAGS and LDLIBS are in the comment section in src/letterart.c,
 and in src/makefile. Well, they are appropriate for the pi that I am working on;
 you may need to change them for your platform.
 
+--------------------
+
 The first program is called letterart; source in src/letterart.c.
 It takes an ascii file as input and produces an image as output.
 The input file contains a matrix of letters.
@@ -84,4 +86,31 @@ Then the letters of the matrix would have meaning: y is for yellow,
 b is for blue, g is for green, etc.
 Use the same letter color correspondence as in drawit.c.
 I haven't implemented this but it wouldn't be hard.
+
+--------------------
+
+The next program is called colorstates; source in src/colorstates.c.
+It creates a map of the United States, where each state is assigned a color.
+A political map might show the blue states, the red states, and the purple states.
+A map might show the states you have visited, and the states you have lived in.
+You choose the colors for this.
+A map might show the the degree to which blacks are oppressed by the legal system;
+this varies considerably from state to state.
+
+The input file contains 51 lines, a line for each state and one for dc.
+Each line is the two letter state abbreviation, and a color,
+as recognized by the ImageMagick library.
+I just pass the color through; so there is a lot of power here.
+Consult ImageMagick documentation for the recognized colors.
+This example makes Michigan green and Texas orange.
+
+mi green
+tx orange
+
+The command runs like this:
+colorstates foo.txt foo.png
+However, you have to have us50.png, the template, in the current directory.
+This is in the pictures directory in this project.
+You can change the code to use an absolute path, wherever you keep us50.png,
+or make a -t template option.
 
