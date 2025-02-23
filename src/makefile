@@ -1,4 +1,4 @@
-all : hexsol chiral letterart colorstates
+all : hexsol chiral letterart colorstates drawit
 
 hexsol : hexsol.c
 	cc hexsol.c -o hexsol

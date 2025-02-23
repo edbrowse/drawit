@@ -135,3 +135,146 @@ See pictures/felonvote.txt and pictures/felonvote.png
 Note, this map is not guaranteed to be up to date.
 We can only hope that more states turn green, as the moral arc bends slowly.
 
+--------------------
+
+The third and final program is called drawit; source in src/drawit.c.
+This program draws a picture, with lines, circles,
+ellipses, and colors, based on a line oriended input file.
+Blank lines, or lines starting with #, are ignored.
+In all other lines, the first character is a command of sorts,
+followed by some numeric arguments.
+Here is a file that draws a tall black rectangle against a white background.
+The lines are described below.
+
+f50,90
+s5,5
+d5,85
+d45,85
+d45,5
+d5,5
+
+The first line starts with f, and defines the frame.
+The first noncomment line has to be the frame.
+The arguments are pixels across and pixels down.
+When you refer to coordinates on subsequent lines, make sure they are within your frame.
+
+The s command sets the pencil - where to start drawing.
+Arguments are pixels across and pixels down.
+As a mathematician, I found this standard a bit jarring.
+It does not follow matrix notation, down then across,
+nor does it follow the xy plane, which is across then up, with the origin at the lower left.
+It is the ImageMagick standard, and we just get use to it.
+So the second line starts the pencil at 5,5,
+5 pixels over and 5 down.
+
+The d command is for draw.
+Draw down to 85,5, then over to 45,85,
+then up to 45,5, then back to 5,5, which is where we started.
+This builds the rectangle on the page.
+
+Certain letters can be used to fill shapes with colors.
+All draing commands must come first, then the color commands.
+If you want the above rectangle to be red, do this.
+
+f50,90
+s5,5
+d5,85
+d45,85
+d45,5
+d5,5
+r30,50
+
+r means red, and 30,50 is the point where red begins.
+Red spreads out until it runs into the black borders, in this case the rectangle.
+Thus the entire tall rectangle is red.
+If you want the top half to be red and the bottom half blue,
+draw a line in the middle, to cut the rectangle in half,
+then use the r and b commands.
+
+f50,90
+s5,5
+d5,85
+d45,85
+d45,5
+d5,5
+s5,45
+d45,45
+r25,25
+b25,65
+
+Color codes are as follows.
+
+kwe
+b blue
+r red
+g green
+y yellow
+p pink
+o orange
+k black
+w white
+e purple
+
+The c command draws a circle, specifying the center and radius.
+
+c30,20r12
+
+This moves over 30, down 20, and draws a circle of radius 12, which does indeed fit on the page.
+If the circle runs off the page, the portion that is out-of-frame is simply not drawn.
+
+Mathematicians will again have to adjust, for it doesn't draw a circle,
+it draws a disk. The circle and its interior are drawn.
+We'll talk about drawing just the circle later; there is a trick.
+
+To draw a green circle, append one of the color codes, like this.
+
+c30,20r12g
+
+Remember, the entire disk of radius 12 is green.
+Let's say you want just the green circle, with the background white inside.
+Draw a green circle first, then a smaller white circle with the same center.
+
+
+c30,20r12g
+c30,20r9w
+
+Here is a red disk inside a green circle.
+
+c30,20r12g
+c30,20r9r
+
+Since ImageMagick can draw ellipses, we can take advantage of that.
+The letter s after the radius indicates an ellipse.
+Here is an ellipse, centered at 25,30,
+with major axis of length 40, and minor axis of length 20.
+In other words, it is longer across than it is wide top to bottom.
+
+c25,30r20s10
+
+Remember that the entire ellipse is drawn, including the interior, all black.
+Follow up with a color code for a colored ellips.
+Here is the same ellipse but yellow.
+
+c25,30r20s10y
+
+For the border of an ellipse, draw the first elllipse in your favorite color,
+then a smaller one with the same center, in white, leaving just the border.
+
+c25,30r20s10o
+c25,30r18s8w
+
+Use l instead of s for the lower half of an ellipse,
+and u instead of s for the upper half of an ellipse.
+Here is the lower half of the ellipse, blue with an orange border.
+
+c25,30r20l10o
+c25,30r18l8b
+
+Those are all the capabilities of drawit.
+It would be nice to add written words, for captions etc.
+
+The command line is as you would expect.
+drawit file png48:file.png
+Or simpley drawit file, which does the same thing.
+
+The drawtest file, in src, exercises these various comands, and includes comments.
