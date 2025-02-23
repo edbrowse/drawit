@@ -94,15 +94,14 @@ It creates a map of the United States, where each state is assigned a color.
 A political map might show the blue states, the red states, and the purple states.
 A map might show the states you have visited, and the states you have lived in.
 You choose the colors for this.
-A map might show the the degree to which blacks are oppressed by the legal system;
-this varies considerably from state to state.
 
 The input file contains 51 lines, a line for each state and one for dc.
 Each line is the two letter state abbreviation, and a color,
 as recognized by the ImageMagick library.
-I just pass the color through; so there is a lot of power here.
+I just pass the color through, so there is a lot of power here.
 Consult ImageMagick documentation for the recognized colors.
 This example makes Michigan green and Texas orange.
+Note that everything is lower case.
 
 mi green
 tx orange
@@ -113,4 +112,26 @@ However, you have to have us50.png, the template, in the current directory.
 This is in the pictures directory in this project.
 You can change the code to use an absolute path, wherever you keep us50.png,
 or make a -t template option.
+
+I don't know if you need the png48: prefix on the output file.
+Since the template is in png48, the output file probably will be as well.
+
+Here is an example, an illustration of the states that allow felons to vote.
+The fifteenth amendment to the Constitution makes it crystal clear.
+
+"The right of citizens of the United States to vote shall not be denied or
+abridged by the United States or by any State on account of race, color,
+or previous condition of servitude."
+
+Green states restore voting rights as soon as you step out of jail,
+and pink states restore voting rights after parole is complete.
+Bear in mind, a felon could be on parole for 8 years, so this is not a great solution.
+Red states don't restore voting rights at all, unless you jump through
+a lot of hoops, and even then it is at the discretion of a review board.
+Pink states violate the spirit of the 15th amendment;
+red states violate the spirit and the lettter of the 15th amendment.
+But we don't really care about rights, or the Constitution, when blacks are involved.
+See pictures/felonvote.txt and pictures/felonvote.png
+Note, this map is not guaranteed to be up to date.
+We can only hope that more states turn green, as the moral arc bends slowly.
 
