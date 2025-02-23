@@ -1,0 +1,44 @@
+#!/usr/bin/perl
+
+#  This script assumes drawit source is embedded in html, supporting the
+#  corresponding <img> tag. Obviously the drawit source is in comments.
+#  Here is the expected format.
+#  <!-- drawit foobar.png
+#  drawit source lines here
+#  -->
+#  <img src=foobar.png alt="blah blah">
+#  This script finds the drawit source, runs drawit on it,
+#  and generates the named image file.
+#  There can be several such files in the html source.
+
+$#ARGV == 0 or die "usage: draw-from-html file\n";
+my $html = $ARGV[0];
+my $state = 0;
+my $image;
+
+open F, $html or die "cannot open $html\n";
+while(<F>) {
+chomp;
+if($state == 0) {
+next unless /^<!-- drawit/;
+$state = 1;
+$image = $_;
+$image =~ s/.* //;
+open Y, ">y";
+print "$image\n";
+} else {
+if(/^-->/) {
+$state = 0;
+close Y;
+if(system "drawit y") {
+print "abort\n";
+exit 2;
+}
+system "mv y.png $image";
+} else {
+print Y "$_\n";
+}
+}
+}
+close F;
+unlink "y";
