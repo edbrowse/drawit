@@ -28,8 +28,8 @@ Here is a simple example.
 With this as input, the output is a tall rectangle on the left,
 then another rectangle, then two squares on the right.
 
-	abc
-	abd
+abc
+abd
 
 letterart chooses the size of the individual squares,
 so that the entire matrix fits on a page.
@@ -54,14 +54,14 @@ hexsol -c
 This program generates solutions as an ascii matrix, ready for letterart.
 Thus a solution to the Hex puzzle might look like this.
 
-	EEEIIIDDDJ
-	EAELIIFDJJ
-	AAALLFFDKJ
-	CALLFFGGKJ
-	CBBBBBHGKK
-	CCCHHHHGGK
+EEEIIIDDDJ
+EAELIIFDJJ
+AAALLFFDKJ
+CALLFFGGKJ
+CBBBBBHGKK
+CCCHHHHGGK
 
-For a sighted person, this is not very satisfying.
+For a sighted person this is not very satisfying.
 If the above matrix is in a file calld hex610.mat, invoke the program this way.
 
 letterart hex610.mat png48:hex610.png
@@ -84,10 +84,10 @@ src/m2p <matrix-file >pieces-file
 A possible enhancement to letterart would color the individual pieces,
 using the MagickFloodfillPaintImage() function.
 A -c option would allow for the colors.
-Then the letters of the matrix would have meaning: y is for yellow,
+In this case, the letters of the matrix would have meaning: y is for yellow,
 b is for blue, g is for green, etc.
-Use the same letter color correspondence as in drawit.c.
-I haven't implemented this but it wouldn't be hard.
+For clarity, use the same letter color correspondence as in drawit.c.
+I haven't implemented this, but it wouldn't be hard.
 
 --------------------
 
@@ -134,6 +134,7 @@ Pink states violate the spirit of the 15th amendment;
 red states violate the spirit and the lettter of the 15th amendment.
 But we don't really care about rights or the Constitution when blacks are involved.
 See pictures/felonvote.txt and pictures/felonvote.png
+
 Note, this map is not guaranteed to be up to date.
 We can only hope that more states turn green, as the moral arc bends slowly.
 
@@ -165,7 +166,7 @@ Arguments are pixels across and pixels down.
 As a mathematician, I found this standard a bit jarring.
 It does not follow matrix notation, down then across,
 nor does it follow the xy plane, which is across then up, with the origin at the lower left.
-It is the ImageMagick standard, and we just get use to it.
+It is the ImageMagick standard, and we just have to get use to it.
 So the second line starts the pencil at 5,5,
 5 pixels over and 5 down.
 
@@ -175,7 +176,7 @@ then up to 45,5, then back to 5,5, which is where we started.
 This builds the rectangle on the page.
 
 Certain letters can be used to fill shapes with colors.
-All draing commands must come first, then the color commands.
+All drawing commands must come first, then the color commands.
 If you want the above rectangle to be red, do this.
 
 f50,90
@@ -206,7 +207,6 @@ b25,65
 
 Color codes are as follows.
 
-kwe
 b blue
 r red
 g green
@@ -222,7 +222,7 @@ The c command draws a circle, specifying the center and radius.
 c30,20r12
 
 This moves over 30, down 20, and draws a circle of radius 12, which does indeed fit on the page.
-If the circle runs off the page, the portion that is out-of-frame is simply not drawn.
+If the circle runs off the page, the portion that is out-of-frame is not drawn.
 
 Mathematicians will again have to adjust, for it doesn't draw a circle,
 it draws a disk. The circle and its interior are drawn.
@@ -235,7 +235,6 @@ c30,20r12g
 Remember, the entire disk of radius 12 is green.
 Let's say you want just the green circle, with the background white inside.
 Draw a green circle first, then a smaller white circle with the same center.
-
 
 c30,20r12g
 c30,20r9w
