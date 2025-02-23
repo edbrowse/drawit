@@ -7,10 +7,12 @@ Change the color of this, change the location of that, etc.
 These programs can be expanded in their capabilities,
 and I certainly welcome ideas and contributions.
 
-The software uses the ImageMagick library. Make sure
+Authors: Karl Dahlke and Kevin Carhart.
+
+This software uses the ImageMagick library. Make sure
 this library is installed, along with the corresponding development headers.
-Appropriate CFLAGS and LDLIBS are in the comment section in src/letterart.c,
-and in src/makefile. Well, they are appropriate for the pi that I am working on;
+Appropriate CFLAGS and LDLIBS are in src/makefile.
+Well, they are appropriate for the pi that I am working on;
 you may need to change them for your platform.
 
 --------------------
@@ -130,7 +132,7 @@ Red states don't restore voting rights at all, unless you jump through
 a lot of hoops, and even then it is at the discretion of a review board.
 Pink states violate the spirit of the 15th amendment;
 red states violate the spirit and the lettter of the 15th amendment.
-But we don't really care about rights, or the Constitution, when blacks are involved.
+But we don't really care about rights or the Constitution when blacks are involved.
 See pictures/felonvote.txt and pictures/felonvote.png
 Note, this map is not guaranteed to be up to date.
 We can only hope that more states turn green, as the moral arc bends slowly.
@@ -278,3 +280,7 @@ drawit file png48:file.png
 Or simpley drawit file, which does the same thing.
 
 The drawtest file, in src, exercises these various comands, and includes comments.
+
+--------------------
+
+Send questions or feedback to maintainers@edbrowse.org
