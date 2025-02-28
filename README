@@ -3,7 +3,7 @@ simple images. It certainly doesn't have the power of photoshop,
 but then again, photoshop is unusable to us.
 As so often happens, these programs are also used by sighted people,
 who want images that they can tweak by editing an ascii file.
-Change the color of this, change the location of that, etc.
+Change the color of this circle, change the location of that line, etc.
 These programs can be expanded in their capabilities,
 and I certainly welcome ideas and contributions.
 
@@ -87,7 +87,7 @@ A -c option would allow for the colors.
 In this case, the letters of the matrix would have meaning: y is for yellow,
 b is for blue, g is for green, etc.
 For clarity, use the same letter color correspondence as in drawit.c.
-I haven't implemented this, but it wouldn't be hard.
+I haven't implemented this, but it wouldn't be hard to do.
 
 --------------------
 
@@ -129,14 +129,13 @@ Green states restore voting rights as soon as you step out of jail,
 and pink states restore voting rights after parole is complete.
 Bear in mind, a felon could be on parole for 8 years, so this is not a great solution.
 Red states don't restore voting rights at all, unless you jump through
-a lot of hoops, and even then it is at the discretion of a review board.
+a lot of expensive hoops, and even then it is at the discretion of a review board.
 Pink states violate the spirit of the 15th amendment;
 red states violate the spirit and the lettter of the 15th amendment.
-But we don't really care about rights or the Constitution when blacks are involved.
-See pictures/felonvote.txt and pictures/felonvote.png
-
+But we don't really care about rights or the Constitution when black people are involved.
+See pictures/felonvote.txt and pictures/felonvote.png.
 Note, this map is not guaranteed to be up to date.
-We can only hope that more states turn green, as the moral arc bends slowly.
+We can only hope that more states turn green as the moral arc bends slowly.
 
 --------------------
 
@@ -147,7 +146,7 @@ Blank lines, or lines starting with #, are ignored.
 In all other lines, the first character is a command of sorts,
 followed by some numeric arguments.
 Here is a file that draws a tall black rectangle against a white background.
-The lines are described below.
+The semantics are described below.
 
 f50,90
 s5,5
@@ -272,7 +271,8 @@ c25,30r20l10o
 c25,30r18l8b
 
 Those are all the capabilities of drawit.
-It would be nice to add written words, for captions etc.
+It would be nice to add colored lines, at present all lines are black,
+and written words for captions etc.
 
 The command line is as you would expect.
 drawit file png48:file.png
