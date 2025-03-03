@@ -131,7 +131,7 @@ Bear in mind, a felon could be on parole for 8 years, so this is not a great sol
 Red states don't restore voting rights at all, unless you jump through
 a lot of expensive hoops, and even then it is at the discretion of a review board.
 Pink states violate the spirit of the 15th amendment;
-red states violate the spirit and the lettter of the 15th amendment.
+red states violate the spirit and the letter of the 15th amendment.
 But we don't really care about rights or the Constitution when black people are involved.
 See pictures/felonvote.txt and pictures/felonvote.png.
 Note, this map is not guaranteed to be up to date.
@@ -141,7 +141,7 @@ We can only hope that more states turn green as the moral arc bends slowly.
 
 The third and final program is called drawit; source in src/drawit.c.
 This program draws a picture, with lines, circles,
-ellipses, and colors, based on a line oriended input file.
+ellipses, and colors, based on a line oriented input file.
 Blank lines, or lines starting with #, are ignored.
 In all other lines, the first character is a command of sorts,
 followed by some numeric arguments.
@@ -252,12 +252,12 @@ In other words, it is longer across than it is wide top to bottom.
 c25,30r20s10
 
 Remember that the entire ellipse is drawn, including the interior, all black.
-Follow up with a color code for a colored ellips.
+Follow up with a color code for a colored ellipse.
 Here is the same ellipse but yellow.
 
 c25,30r20s10y
 
-For the border of an ellipse, draw the first elllipse in your favorite color,
+For the border of an ellipse, draw the first ellipse in your favorite color,
 then a smaller one with the same center, in white, leaving just the border.
 
 c25,30r20s10o
@@ -276,9 +276,9 @@ and written words for captions etc.
 
 The command line is as you would expect.
 drawit file png48:file.png
-Or simpley drawit file, which does the same thing.
+Or simply drawit file, which does the same thing.
 
-The drawtest file, in src, exercises these various comands, and includes comments.
+The drawtest file, in src, exercises these various commands, and includes comments.
 
 --------------------
 
