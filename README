@@ -282,4 +282,14 @@ The drawtest file, in src, exercises these various commands, and includes commen
 
 --------------------
 
+svg is a drawing language within html.
+An image is denoted by the <svg> tag.
+This is more complicated than my drawit program, and more powerful.
+The picture appears within the context of a web page,
+so takes a bit to extract it as a stand alone image.
+Many online tutorials are available,
+including https://blindsvg.com/, which is written for blind developers.
+
+--------------------
+
 Send questions or feedback to maintainers@edbrowse.org
