@@ -1,7 +1,4 @@
-all : hexsol chiral letterart colorstates drawit
-
-hexsol : hexsol.c
-	cc hexsol.c -o hexsol
+all : chiral letterart colorstates drawit
 
 chiral : chiral.c
 	cc chiral.c -o chiral
@@ -20,5 +17,5 @@ colorstates : colorstates.c
 	cc $(IMFLAGS) colorstates.c $(IMLIBS) -o colorstates
 
 clean:
-	@rm -f hexsol chiral letterart drawit colorstates
+	@rm -f chiral letterart drawit colorstates
 

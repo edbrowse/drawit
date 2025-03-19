@@ -49,6 +49,7 @@ The latter has only two solutions.
 hexsol 8 fills an 8 by 8 board, with the center 2 by 2 square removed, rather like a doughnut.
 This has 65 solutions.
 The original puzzle, on a 6 by 10 board, has 2339 solutions.
+The source, hexsol.c, is in the trec project under eklhad.
 
 hexsol -c
 2339 solutions
